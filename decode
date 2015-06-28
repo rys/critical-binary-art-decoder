@@ -1,0 +1,8 @@
+#!/usr/local/bin/zsh
+for i ({001..005})
+do
+  [[ -f BINARY${i}.jpg ]] && rm -f BINARY${i}.jpg
+  wget -q https://static.databeats.com/img/binary/BINARY${i}.jpg
+  convert -resize 768x768 BINARY${i}.jpg BINARY${i}.png
+  ./critical.rb BINARY${i}.png
+done
