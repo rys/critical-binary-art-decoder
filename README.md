@@ -15,8 +15,7 @@ So, we need a decoder!
 
 Basically:
 
-* Read image (which we cheat and normalise in the wrapper to 768x768, because
-* Critical's first couple of images are 1000x1000)
+* Read image (which we cheat and normalise in the wrapper to 768x768, because Critical's first couple of images are 1000x1000)
 * Compute some offsets and widths
 * Preset a threshold value to determine if we have a 0 or a 1
 * Create a string to hold the bits. It's a string because Ruby string slicing
@@ -36,8 +35,8 @@ Basically:
 
 # Requirements
 
-gem install chunky\_png
-brew install imagemagick
+* gem install chunky\_png
+* brew install imagemagick
 
 # Interesting stuff
 
