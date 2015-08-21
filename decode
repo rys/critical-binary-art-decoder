@@ -1,5 +1,5 @@
 #!/usr/local/bin/zsh
-for i ({001..006})
+for i ({001..007})
 do
   [[ -f BINARY${i}.jpg ]] && rm -f BINARY${i}.jpg
   wget -q https://static.databeats.com/img/binary/BINARY${i}.jpg
