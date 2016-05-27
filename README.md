@@ -46,7 +46,7 @@ This broke my decoder for ages until I had a good look at pixel values. Now it
 thresholds instead, based on eyeballing values. Sorry for the magic number!
 
 Also, some of the ASCII characters in some of the images seem a bit weird, but
-I assume the mean something to Critical. Look at BINARY002 and BINARY003.
+maybe they mean something to Critical. Look at BINARY002 and BINARY003.
 I think they got the last 2 characters wrong for those.
 
 # Current output
@@ -65,4 +65,6 @@ CRITICAL PRESENTS> BINARY / POSIJ / 1>TECHPLANT 2>SPIN 3>CHANGE 4>ROVER / CRITDI
 CRITICAL PRESENTS> BINARY / SUBTENSION / 1>NO WORRIES 2>WHAT DO YOU WANT 3>CAMDEN HYPE 4>FUNK OFF 5>FAIR LADY / CRITDIGI006
 
 CRITICAL PRESENTS> BINARY / SIGNAL / 1>NO WARNJNG 2>JUDGEMENT 3>MOVED ON 4>OMEGA POINT FT. HEAMY & ALLIED / CRITDIGI007
+
+CRITICAL PRESENTS> BINARY / VROMM / 1>LAKE MONSTERS 2> NOMAD 3>MOTOR HELL 4>ZOMBIE / CRITDIGI008
 ```
