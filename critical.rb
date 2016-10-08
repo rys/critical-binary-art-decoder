@@ -11,7 +11,10 @@ b = ""
 
 (oy..ih).step(ph).each do |y|
 	(ox..iw).step(pw).each do |x|
-		b += ChunkyPNG::Color.to_grayscale(p[x,y]) <= t ? "0" : "1"
+		p1 = p[x-11,y-1]
+		p2 = p[x-11,y+1]
+		t = 0.3
+		b += ((ChunkyPNG::Color.to_hsb(p1)[2] >= t) and (ChunkyPNG::Color.to_hsb(p2)[2] >= t)) ? "1" : "0"
 	end
 end
 

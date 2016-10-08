@@ -17,7 +17,7 @@ Basically:
 
 * Read image (which we cheat and normalise in the wrapper to 768x768, because Critical's first couple of images are 1000x1000)
 * Compute some offsets and widths
-* Preset a threshold value to determine if we have a 0 or a 1
+* Take a couple of samples and if they're both above a brightness threshold, emit a 1, else emit a 0
 * Create a string to hold the bits. It's a string because Ruby string slicing
   is easy!
 * Walk down and along the image (assuming left-to-right, top-to-bottom worked
@@ -67,4 +67,10 @@ CRITICAL PRESENTS> BINARY / SUBTENSION / 1>NO WORRIES 2>WHAT DO YOU WANT 3>CAMDE
 CRITICAL PRESENTS> BINARY / SIGNAL / 1>NO WARNJNG 2>JUDGEMENT 3>MOVED ON 4>OMEGA POINT FT. HEAMY & ALLIED / CRITDIGI007
 
 CRITICAL PRESENTS> BINARY / VROMM / 1>LAKE MONSTERS 2> NOMAD 3>MOTOR HELL 4>ZOMBIE / CRITDIGI008
+
+CRITICAL PRESENTS> BINARY / OBEISANT / 1>DREAMCATCHER 2>BASS DROP 3>ON MY MIND 4>TWILIGHT / CRITDIGI009
+
+BINARY010 / MONTY / 1>BREATH IN THE FREQUENCIES 2>DEAD CELLS 3>BRIGHTEN UP 4>THINLINE CONTROL 5>FIRST SKANK THEN TALK
+
+BINARY011 / KIJE / 1>ONCE AGAIN 2>CONECT 3>CRUCIAL MOMENT 4>TRIUMPH
 ```
