@@ -1,13 +1,9 @@
 # Notes
-Critical Recordings have a set of releases prefixed Binary, with some cool
-artwork.
+Critical Recordings have a set of releases prefixed Binary, with some cool artwork.
 
 For example: https://static.databeats.com/img/binary/BINARY003.jpg
 
-Given the name, it was pretty obvious that it was probably a binary
-encoding of some kind. A bit of counting of the dots showed that it was
-probably 8-bit with the leading bit 0, which strongly hinted at 7-bit ASCII in
-a 32x32 grid, assuming black is 0 and a colour of any kind is 1.
+Given the name, it was pretty obvious that it was probably a binary encoding of some kind. A bit of counting of the dots showed that it was probably 8-bit with the leading bit 0, which strongly hinted at 7-bit ASCII in a 32x32 grid, assuming black is 0 and a colour of any kind is 1.
 
 So, we need a decoder!
 
@@ -18,17 +14,15 @@ Basically:
 * Read image (which we cheat and normalise in the wrapper to 768x768, because Critical's first couple of images are 1000x1000)
 * Compute some offsets and widths
 * Take a couple of samples and if they're both above a brightness threshold, emit a 1, else emit a 0
-* Create a string to hold the bits. It's a string because Ruby string slicing
-  is easy!
-* Walk down and along the image (assuming left-to-right, top-to-bottom worked
-  out well)
+* Create a string to hold the bits. It's a string because Ruby string slicing is easy!
+* Walk down and along the image (assuming left-to-right, top-to-bottom worked out well)
 * Print out the ASCII
 
 # decode
 
 Basically:
 
-* For the 5 EPs we know about
+* For the 12 EPs we know about
 * Fetch the JPG
 * Convert to PNG
 * Decode
@@ -40,14 +34,9 @@ Basically:
 
 # Interesting stuff
 
-Because of JPEG decompression or Critical actively trying to thwart automated
-decoders, black in the original JPEGs sometimes isn't actual RGB(0,0,0) black.
-This broke my decoder for ages until I had a good look at pixel values. Now it
-thresholds instead, based on eyeballing values. Sorry for the magic number!
+Because of JPEG decompression or Critical actively trying to thwart automated decoders, black in the original JPEGs sometimes isn't actual RGB(0,0,0) black. This broke my decoder for ages until I had a good look at pixel values. Now it thresholds instead, based on eyeballing values. Sorry for the magic number!
 
-Also, some of the ASCII characters in some of the images seem a bit weird, but
-maybe they mean something to Critical. Look at BINARY002 and BINARY003.
-I think they got the last 2 characters wrong for those.
+Also, some of the ASCII characters in some of the images seem a bit weird, but maybe they mean something to Critical. Look at BINARY002 and BINARY003. I think they got the last 2 characters wrong for those.
 
 # Current output
 
@@ -73,4 +62,6 @@ CRITICAL PRESENTS> BINARY / OBEISANT / 1>DREAMCATCHER 2>BASS DROP 3>ON MY MIND 4
 BINARY010 / MONTY / 1>BREATH IN THE FREQUENCIES 2>DEAD CELLS 3>BRIGHTEN UP 4>THINLINE CONTROL 5>FIRST SKANK THEN TALK
 
 BINARY011 / KIJE / 1>ONCE AGAIN 2>CONECT 3>CRUCIAL MOMENT 4>TRIUMPH
+
+BINARY012 / KIRIL / 1>TURN BACK TIME 2>MINIMAL INSTINCT 3>NO FIGHTING 4>RAVE GENERAT 5>ACID ONE
 ```
