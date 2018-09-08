@@ -22,7 +22,7 @@ Basically:
 
 Basically:
 
-* For the 12 EPs we know about
+* For the EPs we know about
 * Fetch the JPG
 * Convert to PNG
 * Decode
