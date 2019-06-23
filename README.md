@@ -1,4 +1,5 @@
-# Notes
+# Introduction
+
 Critical Recordings have a set of releases prefixed Binary, with some cool artwork.
 
 For example: https://static.databeats.com/img/binary/BINARY003.jpg
@@ -13,14 +14,14 @@ Basically:
 
 * Read image (which we cheat and normalise in the wrapper to 768x768, because Critical's first couple of images are 1000x1000)
 * Compute some offsets and widths
-* Take a couple of samples and if they're both above a brightness threshold, emit a 1, else emit a 0
+* Take a couple of samples in the pixel area and if they're both above a brightness threshold, emit a 1, else emit a 0
 * Create a string to hold the bits. It's a string because Ruby string slicing is easy!
 * Walk down and along the image (assuming left-to-right, top-to-bottom worked out well)
-* Print out the ASCII
+* Print out the decoded ASCII
 
 # decode
 
-Basically:
+A wrapper to call `critical.rb`. Basically:
 
 * For the EPs we know about
 * Fetch the JPG
@@ -32,11 +33,52 @@ Basically:
 * gem install chunky\_png
 * brew install imagemagick
 
-# Interesting stuff
+# Brightness thresholding
 
-Because of JPEG decompression or Critical actively trying to thwart automated decoders, black in the original JPEGs sometimes isn't actual RGB(0,0,0) black. This broke my decoder for ages until I had a good look at pixel values. Now it thresholds instead, based on eyeballing values. Sorry for the magic number!
+Because of JPEG decompression, black in the original JPEGs sometimes isn't actual RGB(0,0,0) black. This broke my decoder for ages until I had a good look at pixel values. Now it thresholds on brightness instead, based on eyeballing values. Sorry for the magic number!
 
-Also, some of the ASCII characters in some of the images seem a bit weird, but maybe they mean something to Critical. Look at BINARY002 and BINARY003. I think they got the last 2 characters wrong for those.
+# Mistakes
+
+A handful of the covers for the releases have off-by-1-ish mistakes:
+
+## BINARY002
+
+```
+ Position  ASCII    Binary   Fixed    Binary 
+|--------|--------|--------|--------|--------|
+|   87   |   `    |01100000|   0    |00110000|
+|   88   |   b    |01100010|   2    |00110010|
+|--------|--------|--------|--------|--------|
+```
+
+First nybble is shifted left by 1 accidentally for both broken characters.
+
+## BINARY003
+
+```
+ Position  ASCII    Binary   Fixed    Binary 
+|--------|--------|--------|--------|--------|
+|   87   |   `    |01100000|   0    |00110000|
+|   88   |   c    |01100011|   3    |00110011|
+|--------|--------|--------|--------|--------|
+```
+
+First nybble is shifted left by 1 accidentally for both broken characters.
+
+## BINARY004
+
+```
+ Position  ASCII    Binary   Fixed    Binary 
+|--------|--------|--------|--------|--------|
+|   43   |   O    |01001111|   /    |00101111|
+----------------------------------------------
+```
+
+First nybble is shifted left by 1 accidentally for the broken character.
+
+## BINARY015
+
+The 9th character is off by 1 in the ASCII table, giving `BINARY014` again instead of `BINARY015`.
 
 # Current output
 
@@ -56,5 +98,6 @@ BINARY012 / KIRIL / 1>TURN BACK TIME 2>MINIMAL INSTINCT 3>NO FIGHTING 4>RAVE GEN
 BINARY014 / CRUK / 1>COLD TOP 2>DEVIL AND THE DEEP 3>UNDOING 4>LIT
 BINARY014 / KUMARACHI / 1>NG 2>BACK TO YOU 3>DUSK 4>SOMEONE
 BINARY016 / T>I / 1>ROTATIONS 2 CRUNCHTIME 3>RIX MILE BOTTOM 4>PACKETS
-BINARY01 / STONER / 1>1984 2>PHENOMENON FT.DOTTOR POISON 3>SWEET HOME 4>THERA
+BINARY017 / STONER / 1>1984 2>PHENOMENON FT.DOTTOR POISON 3>SWEET HOME 4>THERA
+BINARY018 / PARTICLE / 1>THE ARRIVAL 0>NEPTUNE 3>SIGNAL 4>TAPE PACK FLEX
 ```
