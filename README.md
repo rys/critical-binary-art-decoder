@@ -1,4 +1,4 @@
-# Introduction
+ Introduction
 
 Critical Recordings have a set of releases prefixed Binary, with some cool artwork.
 
@@ -39,7 +39,7 @@ Because of JPEG decompression, black in the original JPEGs sometimes isn't actua
 
 # Mistakes
 
-A handful of the covers for the releases have off-by-1-ish mistakes:
+A handful of the covers for the releases have off-by-1-ish mistakes and spelling or transcription errors. Not all are below:
 
 ## BINARY002
 
@@ -80,8 +80,30 @@ First nybble is shifted left by 1 accidentally for the broken character.
 
 The 9th character is off by 1 in the ASCII table, giving `BINARY014` again instead of `BINARY015`.
 
-# Current output
+## BINARY022
 
+```
+ Position  ASCII    Binary   Fixed    Binary
+|--------|--------|--------|--------|--------|
+|   27   |   C    |01100111|   S    |10000011|
+----------------------------------------------
+```
+
+Totally goosed.
+
+## BINARY025
+
+```
+ Position  ASCII    Binary   Fixed    Binary
+|--------|--------|--------|--------|--------|
+|   23   |   )    |01000000|   I    |01110011|
+|   71   |   +    |01000011|   S    |10000011|
+----------------------------------------------
+```
+
+The first mistake is totally goosed. The second one is a common shifted first nybble error.
+
+# Current output
 ```
 CRITICAL PRESENTS> BINARY / HYROGLIFICS / 1> BAY CITY BALLERS CLUB 2> KILLAMANAMAN 3> MY OWN / CRITDIGI001
 CRITICAL PRESENTS> BINARY / KLAX / 1 > HOODRAT 2> CORNERSTONE 3> BLACKBALL / CRITDIGI0`b
@@ -103,4 +125,8 @@ BINARY018 / PARTICLE / 1>THE ARRIVAL 0>NEPTUNE 3>SIGNAL 4>TAPE PACK FLEX
 BINARY019 / KLIPPEE / 1>TOO TIGHT 2>CACHED 3>HIGH PING
 BINARY020 / ABLE / 1>LACURA 2>JUST BECAUSE 3>BE GOOD
 BINARY021 / WAEYS / 1>EPHERMERAL 2>MIST 3>WAIS TUNE 4>WAEYS & WAS A BE >BULLYING
+BINARY022 / TREX / 1>STRESC TEST 2>OTHER SPECIES 3>EVERYBODY 4>MOMENT OF TRUTH
+BINARY023 / CAUZER / 1>FORM ONE 2>GROUNDWORK 3>MODULATE
+BINARY024 / EN:VY / 1>PEGASOS 2>POLICE CHASE 3>AIRPLANE MODE 4>FORGET THE WORLD
+BINARY025 / YAANO / 1>)DK 2>GET IT LIKE 3>CHRISTIAN DUBSTEP 4>LIKE THI+
 ```

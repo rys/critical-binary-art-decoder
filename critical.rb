@@ -12,6 +12,8 @@ t = 0.25
 c = 0
 w = 1
 
+d = ""
+
 (oy..ih).step(ph).each do |y|
 	(ox..iw).step(pw).each do |x|
 		p1 = p[x-11,y-1]
@@ -20,11 +22,14 @@ w = 1
 		s2 = ChunkyPNG::Color.to_hsb(p2)[2]
 		r = ((s1 >= t) and (s2 >= t)) ? "1" : "0"
 		b += r
+        d += r
 		c += 1
 		puts "DEBUG #{w},#{c}: #{r} <- #{s1}, #{s2}" if debug
 		if debug and c == 8
 			c = 0
 			w += 1
+            puts "#{d} decodes to #{d.to_i(2).chr}"
+            d = ""
 			puts "----------------------------------------"
 		end
 	end
