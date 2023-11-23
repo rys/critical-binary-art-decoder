@@ -1,9 +1,11 @@
 #!/usr/local/bin/zsh
-for i ({001..012} {014..025})
+
+declare -A imgmap=([026]="https://f4.bcbits.com/img/a0952046789_10.jpg" [025]="https://f4.bcbits.com/img/a0650681119_10.jpg" [024]="https://f4.bcbits.com/img/a2617901891_10.jpg" [023]="https://f4.bcbits.com/img/a0096078979_10.jpg" [022]="https://f4.bcbits.com/img/a1729802100_10.jpg" [021]="https://f4.bcbits.com/img/a1332065111_10.jpg" [020]="https://f4.bcbits.com/img/a3561437372_10.jpg" [019]="https://f4.bcbits.com/img/a1724359976_10.jpg" [018]="https://criticalmusic.com/wp-content/uploads/2019/03/BINARY018-Packshot-900px-750x750.jpg" [017]="https://criticalmusic.com/wp-content/uploads/2018/08/BINARY017-750x750.jpg" [016]="https://criticalmusic.com/wp-content/uploads/2018/01/BINARY016_900px-750x750.jpg" [015]="https://criticalmusic.com/wp-content/uploads/2017/11/binary15-750x750.jpg" [014]="https://criticalmusic.com/wp-content/uploads/2017/11/BINARY14-Packshot-900px-750x750.jpg" [012]="https://criticalmusic.com/wp-content/uploads/2017/08/BINARY12-900px-750x750.jpg" [011]="https://criticalmusic.com/wp-content/uploads/2017/04/binary011-750x750.jpg" [010]="https://criticalmusic.com/wp-content/uploads/2017/04/binary010-750x750.jpg" [009]="https://criticalmusic.com/wp-content/uploads/2017/04/binary009-750x750.jpg" [008]="https://criticalmusic.com/wp-content/uploads/2017/04/binary008-750x750.jpg" [007]="https://criticalmusic.com/wp-content/uploads/2017/04/binary007-750x750.jpg" [006]="https://criticalmusic.com/wp-content/uploads/2017/04/binary006-750x750.jpg" [005]="https://criticalmusic.com/wp-content/uploads/2017/04/binary005-750x750.jpg" [004]="https://criticalmusic.com/wp-content/uploads/2017/04/binary004-750x750.jpg" [003]="https://criticalmusic.com/wp-content/uploads/2017/04/binary003-750x750.jpg" [002]="https://criticalmusic.com/wp-content/uploads/2017/04/binary002-750x750.jpg" [001]="https://criticalmusic.com/wp-content/uploads/2017/04/binary001-750x750.jpg")
+
+for i url in "${(@kv)imgmap}"
 do
   [[ -f BINARY${i}.jpg ]] && rm -f BINARY${i}.jpg
-  wget -q https://static.databeats.com/img/binary/BINARY${i}.jpg
+  wget -q ${url} -O BINARY${i}.jpg
   convert -resize 768x768 BINARY${i}.jpg BINARY${i}.png
   ./critical.rb BINARY${i}.png ${1}
-  rm BINARY${i}.jpg BINARY${i}.png
 done

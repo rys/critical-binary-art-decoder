@@ -1,4 +1,10 @@
- Introduction
+# NOTE
+
+This is currently broken after some of the artwork moved from the databeats.com URL, and the artwork design has changed a bit too so the decoder fails on the pixel hunting + thresholding.
+
+Will try and fix it one day!
+
+# Introduction
 
 Critical Recordings have a set of releases prefixed Binary, with some cool artwork.
 
